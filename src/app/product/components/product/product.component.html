@@ -1,0 +1,42 @@
+<div class="card animated fadeIn fast  border-primary mb-3 mr-4" style="width: 20rem;">
+  <!-- HEADER -->
+  <div class="card-header">
+    <!-- <img *ngIf="product==''" class="img-logo" src="assets/img/visa.png" alt="Visa">
+  <img *ngIf="product==''" class="img-logo" src="assets/img/master.png" alt="MasterCard"> -->
+
+  </div>
+  <!-- BODY -->
+
+  <div class="card-body">
+    <h3 class="card-title">{{product.typeAccount | productType}}</h3>
+    <h5 class="card-title">{{product.typeAccount === 'CREDIT_CARD' ? (product.id | cardSecurity) : product.id }}</h5>
+    <h5 class="card-title">{{product.valor_constitucion}}</h5>
+    <!-- <h5 class="card-title">{{product.saldo_actual}}</h5> -->
+
+    <p class="card-text"><small class="text-muted"></small></p>
+    <!-- barra de progreso -->
+    <div class="progress md-progress" style="height: 20px">
+      <div class="progress-bar black" role="progressbar" style="width: 40%; height: 20px" aria-valuenow="40"
+           aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <ul class="list-unstyled d-flex justify-content-between font-small text-muted mb-4">
+      <li class="pl-4">1400.000</li>
+      <li class="pr-4">2.000.000</li>
+    </ul>
+    <button type="button" class="btn btn-primary btn-block">
+      Pagar
+    </button>
+    <br>
+    <div id="collapse-example" class="collapse show" aria-labelledby="heading-example">
+
+      <!-- FOOTER -->
+      <div class="card-footer bg-transparent border-dark" id="asd">
+        <h5 class="card-title"> Apertura : {{product.openedDate |  date}}</h5>
+        <h5 class="card-title"> Cierre : {{product.closedDate | date}}</h5>
+        <h5 class="card-title"> Vencimiento: {{product.dueDate | date}}</h5>
+        <h5 class="card-title"> Ultima trans: {{product.lastTransactionDate | date}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+

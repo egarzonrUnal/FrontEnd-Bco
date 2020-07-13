@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pruebatecnica": {
+    "ADL": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pruebatecnica",
+            "outputPath": "dist/ADL",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -66,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pruebatecnica:build"
+            "browserTarget": "ADL:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pruebatecnica:build:production"
+              "browserTarget": "ADL:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pruebatecnica:build"
+            "browserTarget": "ADL:build"
           }
         },
         "test": {
@@ -92,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -114,15 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pruebatecnica:serve"
+            "devServerTarget": "ADL:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pruebatecnica:serve:production"
+              "devServerTarget": "ADL:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "pruebatecnica"
+    }
+  },
+  "defaultProject": "ADL",
+  "cli": {
+    "analytics": false
+  }
 }
