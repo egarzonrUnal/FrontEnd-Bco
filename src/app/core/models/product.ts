@@ -53,6 +53,10 @@ export class Product {
       amount: number;
       currencyCode: string;
     },
+    valor_constitucion?: {
+      amount: number;
+      currencyCode: string;
+    },
 
     cupo_total: {
       amount: number;
