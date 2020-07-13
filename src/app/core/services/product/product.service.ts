@@ -12,4 +12,5 @@ export class ProductService {
   getForBankName(name:string) {
     return this.http.get(`${environment.url_api}products/${name}`)
   }
+
 }

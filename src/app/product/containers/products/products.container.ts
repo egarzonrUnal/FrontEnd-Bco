@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '@core/services/product/product.service';
 import {Product} from '@core/models/product';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-products',
@@ -8,11 +10,17 @@ import {Product} from '@core/models/product';
 })
 export class ProductsContainer implements OnInit {
   public products: Product [] = []
-  constructor(private productService: ProductService) {
+  public bankName: string
+
+  constructor(private productService: ProductService , private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.getForBankName('BANCO_3')
+    this.route.queryParams.subscribe(params => {
+      this.bankName = params.bank || 'BANCO_1'
+      console.log(params)
+      this.getForBankName(this.bankName)
+    })
   }
 
   getForBankName(name: string){

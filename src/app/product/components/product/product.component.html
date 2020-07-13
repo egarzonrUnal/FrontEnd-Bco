@@ -1,8 +1,8 @@
 <div class="card animated fadeIn fast  border-primary mb-3 mr-4" style="width: 20rem;">
   <!-- HEADER -->
   <div class="card-header">
-    <!-- <img *ngIf="product==''" class="img-logo" src="assets/img/visa.png" alt="Visa">
-  <img *ngIf="product==''" class="img-logo" src="assets/img/master.png" alt="MasterCard"> -->
+    <img *ngIf="product.id[0] === '4'" class="img-logo" src="assets/Img/visa.png" alt="Visa">
+    <img *ngIf="product.id[0] === '5'" class="img-logo" src="assets/Img/master.png" alt="MasterCard">
 
   </div>
   <!-- BODY -->
@@ -27,16 +27,25 @@
       Pagar
     </button>
     <br>
-    <div id="collapse-example" class="collapse show" aria-labelledby="heading-example">
 
-      <!-- FOOTER -->
-      <div class="card-footer bg-transparent border-dark" id="asd">
-        <h5 class="card-title"> Apertura : {{product.openedDate |  date}}</h5>
-        <h5 class="card-title"> Cierre : {{product.closedDate | date}}</h5>
-        <h5 class="card-title"> Vencimiento: {{product.dueDate | date}}</h5>
-        <h5 class="card-title"> Ultima trans: {{product.lastTransactionDate | date}}</h5>
-      </div>
-    </div>
   </div>
+
+  <ngb-accordion #acc="ngbAccordion">
+    <ngb-panel title="Detalles">
+      <ng-template ngbPanelContent>
+        <div id="collapse-example" class="collapse show" aria-labelledby="heading-example">
+
+          <!-- FOOTER -->
+          <div class="card-footer bg-transparent border-dark" id="asd">
+            <h5 class="card-title"> Apertura : {{product.openedDate |  date}}</h5>
+            <h5 class="card-title"> Cierre : {{product.closedDate | date}}</h5>
+            <h5 class="card-title"> Vencimiento: {{product.dueDate | date}}</h5>
+            <h5 class="card-title"> Ultima trans: {{product.lastTransactionDate | date}}</h5>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
 </div>
 
