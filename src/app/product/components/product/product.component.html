@@ -19,7 +19,7 @@
         <div *ngIf="product.typeAccount === 'CREDIT_CARD' " class="progress md-progress" style="height: 20px">
             <div class="progress-bar black" role="progressbar" [style.width]=" percent" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <ul class="list-unstyled d-flex justify-content-between font-small text-muted mb-4">
+        <ul *ngIf="product.typeAccount === 'CREDIT_CARD'" class="list-unstyled d-flex justify-content-between font-small text-muted mb-4">
             <li class="pl-4">{{this.product.productAccountBalances?.saldo_actual?.amount}}</li>
             <li class="pr-4">{{this.product.productAccountBalances?.cupo_total?.amount}}</li>
         </ul>
