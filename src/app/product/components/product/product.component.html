@@ -11,7 +11,7 @@
         <h3 class="card-title">{{product.typeAccount | productType}}</h3>
         <h5 class="card-title">{{product.typeAccount === 'CREDIT_CARD' ? (product.id | cardSecurity) : product.id }}</h5>
         <h5 class="card-title">{{product.valor_constitucion}}</h5>
-        <h5 class="card-title">Saldo actual: {{ product.typeAccount === 'CERTIFIED_DEPOSIT_TERM'? this.product.productAccountBalances.valor_constitucion.amount:this.product.productAccountBalances?.saldo_actual?.amount }}</h5>
+        <h5 class="card-title">Saldo actual: {{ product.typeAccount === 'CERTIFIED_DEPOSIT_TERM'? (this.product.productAccountBalances.valor_constitucion.amount|number: '1.0-0'):(this.product.productAccountBalances?.saldo_actual?.amount|number: '1.0-0') }}</h5>
 
 
         <p class="card-text"><small class="text-muted"></small></p>
@@ -20,8 +20,8 @@
             <div class="progress-bar black" role="progressbar" [style.width]=" percent" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <ul *ngIf="product.typeAccount === 'CREDIT_CARD'" class="list-unstyled d-flex justify-content-between font-small text-muted mb-4">
-            <li class="pl-4">{{this.product.productAccountBalances?.saldo_actual?.amount}}</li>
-            <li class="pr-4">{{this.product.productAccountBalances?.cupo_total?.amount}}</li>
+            <li class="pl-4">{{(this.product.productAccountBalances?.saldo_actual?.amount|number: '1.0-0')}}</li>
+            <li class="pr-4">{{(this.product.productAccountBalances?.cupo_total?.amount|number: '1.0-0')}}</li>
         </ul>
         <button type="button" class="btn btn-primary btn-block">
       Pagar
