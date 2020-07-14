@@ -14,15 +14,14 @@
         <h5 class="card-title">Saldo actual: {{ product.typeAccount === 'CERTIFIED_DEPOSIT_TERM'? this.product.productAccountBalances.valor_constitucion.amount:this.product.productAccountBalances?.saldo_actual?.amount }}</h5>
 
 
-
         <p class="card-text"><small class="text-muted"></small></p>
         <!-- barra de progreso -->
-        <div class="progress md-progress" style="height: 20px">
-            <div class="progress-bar black" role="progressbar" style="width: 40%; height: 20px" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        <div *ngIf="product.typeAccount === 'CREDIT_CARD' " class="progress md-progress" style="height: 20px">
+            <div class="progress-bar black" role="progressbar" [style.width]=" percent" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <ul class="list-unstyled d-flex justify-content-between font-small text-muted mb-4">
-            <li class="pl-4">1400.000</li>
-            <li class="pr-4">2.000.000</li>
+            <li class="pl-4">{{this.product.productAccountBalances?.saldo_actual?.amount}}</li>
+            <li class="pr-4">{{this.product.productAccountBalances?.cupo_total?.amount}}</li>
         </ul>
         <button type="button" class="btn btn-primary btn-block">
       Pagar
