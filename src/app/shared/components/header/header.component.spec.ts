@@ -1,25 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BankService } from '@core/services/bank/bank.service';
 import { HeaderComponent } from './header.component';
+import { Observable, } from 'rxjs/Observable';
+import 'rxjs/add/observable/from'
+
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+  const servicio = new BankService(null);
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
+    component = new HeaderComponent(servicio);
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Init: Debe cargar los bancos', () => {
+    const bancos = ['BANCO_1', 'BANCO_2', 'BANCO_3', 'BANCO_4'];
+    spyOn(servicio, 'getBanks').and.callFake(() => {
+      return Observable.from([bancos]);
+    });
   });
 });
