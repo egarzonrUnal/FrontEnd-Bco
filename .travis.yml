@@ -1,19 +1,16 @@
 language: node_js
 node_js:
-- 12.18.2
-cache: npm
-
+  - 12.18.2
 
 install:
-- npm install
+  - npm install
 
 script:
-- npm test
-- npm run build
+  - npm test
 
 deploy:
- provider: pages
- skip-cleanup: true
- github-token: $GITHUB_TOKEN
- on:
-  branch: master
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: master
